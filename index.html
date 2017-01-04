@@ -1,0 +1,188 @@
+<!--
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    &lt;!&ndash; Latest compiled and minified CSS &ndash;&gt;
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    &lt;!&ndash; Optional theme &ndash;&gt;
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css"
+          integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <title>Contact List App</title>
+</head>
+<body>
+<div class="container" ng-controller="AppCtrl">
+    <h1>This is our contact app</h1>
+    <table class="table">
+       <thead>
+          <tr>
+            <th>Name</th>
+              <th>Email</th>
+              <th>Number</th>
+              <th>Action</th>
+              <th>&nbsp; </th>
+          </tr>
+       </thead>
+        <tbody>
+        <tr>
+            <td><input class="form-control" ng-model="contact.name"> </td>
+            <td><input class="form-control" ng-model="contact.email"></td>
+            <td><input class="form-control" ng-model="contact.number"></td>
+            <td><button class="btn-primary" ng-click="addcontact()">Add Contact</button></td>
+            <td> <button class="btn-info" ng-click="update()">Update</button>
+            <td> <button class="btn-info" ng-click="clear()">Clear</button>
+
+
+
+        </tr>
+        <tr ng-repeat="cont in contactlist">
+            <td>{{cont.name}}</td>
+            <td>{{cont.email}}</td>
+            <td>{{cont.number}}</td>
+            <td><button class="btn-danger" ng-click="remove(cont._id)">Remove</button></td>
+            <td><button class="btn-warning" ng-click="edit(cont._id)">Edit</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+<script src="controllers/controller.js"></script>
+</body>
+</html>-->
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Broadcasting</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+    <script>
+        var app = angular.module('app', []);
+
+        app.controller("secondCtrl", function ($scope) {
+            $scope.handleClick = function (msg) {
+                $scope.$emit('eventName', { message: msg });
+            };
+        });
+
+        app.controller("firstCtrl", function ($scope,$rootScope) {
+            $rootScope.$on('eventName', function (event, args) {
+                $scope.message = args.message;
+                console.log($scope.message);
+            });
+        });
+
+
+
+    </script>
+</head>
+<body ng-app="app">
+<div ng-controller="firstCtrl" style="border:2px solid #E75D5C; padding:5px;">
+    <h1>Parent Controller</h1>
+    <p>Emit Message : {{message}}</p>
+    <br />
+</div>
+<div ng-controller="secondCtrl" style="border:2px solid #428bca;padding:5px;">
+    <h1>Child Controller</h1>
+    <input ng-model="msg">
+    <button ng-click="handleClick(msg);">Emit</button>
+</div>
+</body>
+</html>
+-->
+
+<!--
+
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <title>Broadcasting</title>
+
+</head>
+<br>
+&lt;!&ndash;<div ng-controller="myFirstController" >
+
+    <my-first-directive></my-first-directive><br>
+
+</div>&ndash;&gt;
+
+<div ng-controller="mySecondController">
+    <my-inventory-detail data="product1"></my-inventory-detail>
+    <my-inventory-detail data="product2"></my-inventory-detail>
+    <my-inventory-detail data="product3"></my-inventory-detail>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+<script src="controller.js"></script>
+</body>
+
+</html>
+
+-->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <title>Broadcasting</title>
+
+</head>
+<br>
+<div ng-app="myApp" ng-controller="myCtrl">
+Enter a Number:
+    <input type="text" ng-model="number">
+    <button type="button" ng-click="dosquare()">X<sup>2</sup></button>
+    <button type="button" ng-click="docube()">X<sup>3</sup></button></br>
+    </br>
+    <div>Answer: {{answer}}</div>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+<script src="controller.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
