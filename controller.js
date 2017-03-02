@@ -9,17 +9,14 @@ app.service('Mathservice',function () {
     this.devide = function (a,b) {
         return a / b
     }
-
 })
 
 app.service('Calculateservice',function (Mathservice) {
     this.square = function (a) {
         return Mathservice.multiply(a,a)
-
     }
     this.cube=function (a) {
         return Mathservice.multiply(a,Mathservice.multiply(a,a))
-
     }
 
 })
@@ -33,7 +30,6 @@ app.controller('myCtrl', function($scope,Calculateservice) {
     $scope.docube = function () {
         console.log('cube calling')
         $scope.answer = Calculateservice.cube($scope.number)
-
     }
 });
 
